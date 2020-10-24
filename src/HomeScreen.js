@@ -1,6 +1,7 @@
-import { SafeAreaView, View, Text } from "react-native"
-import React from "react"
-// import { Provider } from "react-redux"
+import { SafeAreaView, View, Text, Button } from "react-native"
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { addTodo } from "./modules/todosSlice"
 
 import CounterBasic from "../src/components/CounterBasic"
 import CounterRTKwithSliceConnect from "../src/components/CounterRTKwithSliceConnect"
@@ -9,6 +10,10 @@ import CounterRTKwithSliceReduxHooks from "../src/components/CounterRTKwithSlice
 
 // import store from "./src/store"
 export const HomeScreen = () => {
+  // storeで設定したtodosからinitialStateを取得
+  const todos = useSelector((state) => state.todos)
+  console.log("kousinn?", todos)
+  const dispatch = useDispatch()
   return (
     <View>
       <View>
@@ -20,6 +25,15 @@ export const HomeScreen = () => {
       </View>
       <View>
         <CounterRTKwithSliceReduxHooks />
+      </View>
+      <View>
+        <Button
+          title="- todo"
+          onPress={() =>
+            dispatch(addTodo({ id: "hoge", text: "hoge" }, addTodo()))
+          }
+        />
+        <Text style={{ textAlign: "center" }}>TodosCount:{todos.length} </Text>
       </View>
     </View>
   )
