@@ -4,11 +4,12 @@ const todosSlice = createSlice({
   name: "todos", // ①
   initialState: [], // ②
   reducers: {
+    // 他のアクションを追加して他のアクションの値からpayloadするみたいなこともできる...
     addTodo(state, action) {
       console.log("state?", state)
       console.log("action?", action)
       // ③
-      const { id, text } = action.payload
+      // const { id, text } = action.payload
       console.log("?------------?-------------?")
       state.push({ id, text, completed: false }) // ④
     },

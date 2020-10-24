@@ -29,9 +29,7 @@ export const HomeScreen = () => {
       <View>
         <Button
           title="- todo"
-          onPress={() =>
-            dispatch(addTodo({ id: "hoge", text: "hoge" }, addTodo()))
-          }
+          onPress={() => dispatch(addTodo({ id: "hoge", text: "hoge" }))}
         />
         <Text style={{ textAlign: "center" }}>TodosCount:{todos.length} </Text>
       </View>
