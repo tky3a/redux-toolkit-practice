@@ -5,8 +5,11 @@ import { Provider } from "react-redux"
 import CounterBasic from "./src/components/CounterBasic"
 import CounterRTKwithSliceConnect from "./src/components/CounterRTKwithSliceConnect"
 import CounterRTKwithSliceReactHook from "./src/components/CounterRTKwithSliceReactHook"
+import CounterRTKwithSliceReduxHooks from "./src/components/CounterRTKwithSliceReduxHooks"
 
 import store from "./src/store"
+
+import { HomeScreen } from "./src/HomeScreen"
 
 export default function () {
   return (
@@ -18,15 +21,7 @@ export default function () {
       }}
     >
       <Provider store={store}>
-        <View>
-          <View>
-            <CounterBasic />
-          </View>
-          <CounterRTKwithSliceConnect />
-          <View>
-            <CounterRTKwithSliceReactHook />
-          </View>
-        </View>
+        <HomeScreen />
       </Provider>
     </SafeAreaView>
   )
