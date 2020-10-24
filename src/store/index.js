@@ -1,8 +1,17 @@
-import {createStore, combineReducers} from "redux"
-import countReducer from "../reducers/countReducer"
+import { combineReducers } from "redux"
+import { configureStore } from "@reduxjs/toolkit"
 
-const rootReducer = combineReducers({count: countReducer})
-const configureStore = () => {
-  return createStore(rootReducer)
-}
-export default configureStore;
+import countReducer from "../reducers/countReducer"
+import countsReducer from "../modules/countsSlice"
+
+// 複数のSliceを追加していく
+const rootReducer = combineReducers({
+  count: countReducer,
+  counts: countsReducer,
+})
+
+// storeにreducerを返す
+const store = configureStore({
+  reducer: rootReducer,
+})
+export default store
